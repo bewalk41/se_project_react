@@ -1,0 +1,17 @@
+.item-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  margin: 10px;
+}
+
+.item-card__image {
+  max-width: 100%;
+  height: auto;
+}
+
+.item-card__title {
+  text-align: center;
+  margin: 10px 0 0;
+}
