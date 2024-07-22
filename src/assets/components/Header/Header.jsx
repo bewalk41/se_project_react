@@ -3,21 +3,25 @@ import "./Header.css";
 import headerlogo from "../../headerlogo.png";
 import avatar from "../../avatar.png";
 
-function Header({ onAddClothesClick }) {
+function Header({ handleAddClick }) {
   // Get the current date
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
 
-  // Hardcoded location for now; replace with dynamic location if needed
-  const location = "Your Location"; // Replace with dynamic location if available
+  // Hardcoded location (you can replace this with dynamic location fetching logic)
+  const location = "New York, NY"; // Replace this with actual logic if needed
 
   return (
     <header className="header">
       <img className="header__logo" src={headerlogo} alt="Header Logo" />
       <p className="header__date-and-location">{`${currentDate}, ${location}`}</p>
-      <button className="header__add-clothes-btn" onClick={onAddClothesClick}>
+      <button
+        type="button"
+        className="header__add-clothes-btn"
+        onClick={handleAddClick}
+      >
         + Add clothes
       </button>
       <div className="header__user-container">

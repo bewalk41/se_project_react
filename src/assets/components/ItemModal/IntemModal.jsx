@@ -1,25 +1,18 @@
 import React from "react";
 import "./ItemModal.css";
 
-function ItemModal({ item, isOpen, onClose }) {
-  if (!isOpen) return null; // Don't render if not open
-
+function ItemModal({ activeModal, onClose, card }) {
   return (
-    <div className="item-modal">
-      <div className="item-modal__content">
-        <button className="item-modal__close" onClick={onClose}>
-          &times;
+    <div className={`modal ${activeModal === "preview" && "modal__opened"}`}>
+      <div className="modal__content modal__content_type_image">
+        <button onClick={onClose} type="button" className="modal__close">
+          CLOSE
         </button>
-        {item && (
-          <>
-            <img
-              src={item.image}
-              alt={item.name}
-              className="item-modal__image"
-            />
-            <p className="item-modal__title">{item.name}</p>
-          </>
-        )}
+        <img src={card.link} alt={card.name} className="modal__image" />
+        <div className="modal__footer">
+          <h2 className="modal__caption">{card.name}</h2>
+          <p className="modal__weather">Weather: {card.weather}</p>
+        </div>
       </div>
     </div>
   );
