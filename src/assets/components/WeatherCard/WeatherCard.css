@@ -1,9 +1,9 @@
 .weather-card {
   position: relative;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
+  display: flex;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .weather-card__temp {

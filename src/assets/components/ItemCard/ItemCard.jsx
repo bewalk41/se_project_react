@@ -1,17 +1,12 @@
 import React from "react";
 import "./ItemCard.css";
 
-function ItemCard({ item, onItemClick }) {
+function ItemCard({ item }) {
   return (
-    <li className="item-card">
-      <img
-        className="item-card__image"
-        src={item.image}
-        alt={item.name}
-        onClick={() => onItemClick(item)} // Handle item click
-      />
-      <p className="item-card__title">{item.name}</p>
-    </li>
+    <div key={item.id}>
+      <h2>{item.name}</h2>
+      <img src={item.link} alt={item.name} />
+    </div>
   );
 }
 

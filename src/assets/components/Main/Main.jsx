@@ -1,27 +1,24 @@
-// import React from "react";
 import WeatherCard from "../WeatherCard/WeatherCard";
-import ItemCard from "../ItemCard/ItemCard";
 import "./Main.css";
+import { defaultClothingItems } from "../../utils/constants";
+import ItemCard from "../ItemCard/ItemCard";
 
-function Main({ weatherData, clothingItems, onItemClick }) {
-  // Filter items based on weather type
-  const filteredItems = clothingItems.filter(
-    (item) => item.weather === weatherData.type
-  );
-
+function Main({ weatherData }) {
   return (
-    <main className="main">
-      <WeatherCard data={weatherData} />
-      <ul className="main__clothing-list">
-        {filteredItems.map((item) => (
-          <ItemCard
-            key={item.id}
-            imageSrc={item.imageSrc} // Assuming `item` has an `imageSrc` property
-            title={item.title} // Assuming `item` has a `title` property
-            onCardClick={() => onItemClick(item)} // Pass item to the handler
-          />
-        ))}
-      </ul>
+    <main>
+      <WeatherCard />
+      <section className="cards">
+        <p className="cards__text">Today is 75 &deg; F</p>
+        <ul className="cards__list">
+          {defaultClothingItems
+            // .filter((item) => {
+            //   return item.weather === weatherData.type;
+            // })
+            .map((item) => {
+              return <ItemCard key={item._id} item={item} />;
+            })}
+        </ul>
+      </section>
     </main>
   );
 }
