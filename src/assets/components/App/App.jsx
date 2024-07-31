@@ -27,7 +27,11 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey);
+    getWeather(coordinates, APIkey)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(console.error);
   }, []);
 
   return (
